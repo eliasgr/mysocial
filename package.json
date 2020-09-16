@@ -2,9 +2,12 @@
 	"name": "mysocial",
 	"version": "1.0.0",
 	"description": "Simple social app using MERN stack",
-	"main": "main.js",
+	"main": "template.js",
 	"author": "Elias Girma",
 	"license": "MIT",
+	"scripts": {
+		"development": "nodemon"
+	},
 	"dependencies": {
 		"@hot-loader/react-dom": "16.13.0",
 		"express": "4.17.1",
@@ -14,10 +17,10 @@
 		"react-hot-loader": "4.12.20"
 	},
 	"devDependencies": {
-		"@babel/core": "7.9.0",
-		"@babel/preset-env": "7.9.0",
+		"@babel/core": "^7.11.6",
+		"@babel/preset-env": "^7.11.5",
 		"@babel/preset-react": "7.9.4",
-		"babel-loader": "8.1.0",
+		"babel-loader": "^8.1.0",
 		"nodemon": "2.0.2",
 		"webpack": "4.42.1",
 		"webpack-cli": "3.3.11",
