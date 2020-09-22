@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoUri, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
-	UseUnifiedToplogy: true,
+	useUnifiedToplogy: true,
 });
 mongoose.connection.on('error', () => {
 	throw new Error(`unable to connect to databse:${mongoUri}`);

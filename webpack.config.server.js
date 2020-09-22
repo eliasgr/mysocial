@@ -1,10 +1,11 @@
-import path from 'path';
-import nodeExternals from 'webpack-node-externals';
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
 	name: 'server',
+	mode: 'development',
 	entry: [path.join(CURRENT_WORKING_DIR, './server/server.js')],
 	target: 'node',
 	output: {
@@ -29,4 +30,4 @@ const config = {
 	},
 };
 
-export default config;
+module.exports = config;

@@ -5,12 +5,10 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
-import template from '../template';
+import Template from './../template';
 import devBundle from './devBundle';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
-import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles';
+import authRoutes from './routes/auth.routes';
+import userRoutes from './routes/user.routes';
 
 const CURRENT_WORKING_DIR = process.cwd();
 const app = express();
@@ -35,24 +33,25 @@ app.use('/', userRoutes);
 app.use('/', authRoutes);
 
 app.get('*', (req, res) => {
-	const sheets = new ServerStyleSheets();
-	const context = {};
-	const markup = ReactDOMServer.renderToString(
-		sheets.collect(
-			<StaticRouter location={req.url} context={context}>
-				<ThemeProvider theme={theme}>
-					<MainRouter />
-				</ThemeProvider>
-			</StaticRouter>
-		)
-	);
+	// const sheets = new ServerStyleSheets();
+	// const context = {};
+	// const markup = ReactDOMServer.renderToString(
+	// 	sheets.collect(
+	// 		<StaticRouter location={req.url} context={context}>
+	// 			<ThemeProvider theme={theme}>
+	// 				<MainRouter />
+	// 			</ThemeProvider>
+	// 		</StaticRouter>
+	// 	)
+	// );
 
-	if (context.url) {
-		return res.redirect(303, context.url);
-	}
+	// if (context.url) {
+	// 	return res.redirect(303, context.url);
+	// }
 
-	const css = sheets.toString();
-	res.status(200).send(Template({ markup: markup, css: css }));
+	// const css = sheets.toString();
+	res.status(200).send(Template);
+	console.log('root');
 });
 
 //catch unauthorized erros

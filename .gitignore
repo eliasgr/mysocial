@@ -2,5 +2,3 @@
 /node_modules/
 /dist/
 /data/
-/debug.log
-dist/server.generated.js
